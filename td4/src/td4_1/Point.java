@@ -13,12 +13,14 @@ public class Point {
 	}
 	
 	public String toString() {
-		return this.toString();
+		return "x = " + this.x + " || y = " + this.y;
 	}
 	public double getDistance(Point p) {
 		return Math.sqrt(Math.pow(p.getY() - this.y, 2) + Math.pow(p.getX() - this.x, 2));
 	}
-	public boolean equals(Point p) {
+	@Override
+	public boolean equals(Object o) {
+		Point p = (Point) o;
 		if(Double.compare(p.getX(), this.x) == 0 && Double.compare(p.getY(), this.y) == 0) {
 			return true;
 		}else {
@@ -27,11 +29,11 @@ public class Point {
 	}
 	
 	public Point projX() {
-		Point p = new Point(this.x, -this.y);
+		Point p = new Point(this.x, 0);
 		return p;
 	}
 	public Point projY() {
-		Point p = new Point(-this.x, this.y);
+		Point p = new Point(0, this.y);
 		return p;
 	}
 	
